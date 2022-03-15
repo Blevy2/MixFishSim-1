@@ -29,14 +29,15 @@ distance_calc <- function(x1, y1, x2, y2) {
 #' @param lambda is an integar for the value for the exponential decay in probability 
 #' of movement, i.e. \eqn{Pr(B|A) = \exp{-\lambda*dist_{a,b}} / Sum(c=1:c=n)  \exp{-\lambda*dist}}
 #' @param hab is a matrix of the habitat suitability
+#' @param Nzero_vals contains all nonzero indices from the habitat for a given species
 #'
 #' @return is a matrix of the movement probabilities from a cell
 #'
 #' @examples move_prob(c(2, 5), 0.3, matrix(nc = 3, runif(9))) 
 #' 
 #' @export
-move_prob <- function(start, lambda, hab) {
-    .Call('_MixFishSim_move_prob', PACKAGE = 'MixFishSim', start, lambda, hab)
+move_prob <- function(start, lambda, hab, Nzero_vals) {
+    .Call('_MixFishSim_move_prob', PACKAGE = 'MixFishSim', start, lambda, hab, Nzero_vals)
 }
 
 #' @title movement probability function as a list 
@@ -46,6 +47,7 @@ move_prob <- function(start, lambda, hab) {
 #'
 #' @param lambda is the decay value as in \code{move_prob} 
 #' @param hab is a matrix of the habitat suitability for the population
+#' @param Nzero_vals contains all nonzero indices from the habitat for a given species
 #'
 #' @return is a list of the movement probabilities form each cell to all other
 #' cells
@@ -53,8 +55,8 @@ move_prob <- function(start, lambda, hab) {
 #' @examples None at the moment
 #'
 #' @export
-move_prob_Lst <- function(lambda, hab) {
-    .Call('_MixFishSim_move_prob_Lst', PACKAGE = 'MixFishSim', lambda, hab)
+move_prob_Lst <- function(lambda, hab, Nzero_vals) {
+    .Call('_MixFishSim_move_prob_Lst', PACKAGE = 'MixFishSim', lambda, hab, Nzero_vals)
 }
 
 #' @title population movement function 
@@ -64,6 +66,7 @@ move_prob_Lst <- function(lambda, hab) {
 #' @param moveProp is a list of the proportion of the population from each
 #' cell to reallocated to each of the other cells
 #' @param StartPop is a Numeric Matrix of the current populations distribution 
+#' @param Nzero_vals contains all nonzero indices from the habitat for a given species 
 #'
 #' @return is a list of the new position for the population from each of the
 #' cells. 
@@ -77,7 +80,7 @@ move_prob_Lst <- function(lambda, hab) {
 #' @examples None at the moment
 #'
 #' @export
-move_population <- function(moveProp, StartPop) {
-    .Call('_MixFishSim_move_population', PACKAGE = 'MixFishSim', moveProp, StartPop)
+move_population <- function(moveProp, StartPop, Nzero_vals) {
+    .Call('_MixFishSim_move_population', PACKAGE = 'MixFishSim', moveProp, StartPop, Nzero_vals)
 }
 

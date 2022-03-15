@@ -22,8 +22,6 @@
 
 go_fish <- function(sim_init = NULL, fleet_params = NULL, fleet_catches = NULL, 
 		    sp_fleet_catches = NULL, pops = NULL, closed_areas = NULL, t = t) {
-  
-  
 
 ##### extract the relevant components ###########
 params <- fleet_params      # fleet parameter list

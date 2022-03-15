@@ -81,11 +81,13 @@ hab <- 	lapply(seq_len(n.spp), function(i) {
 
 	# Plot
 	if(plot.dist == TRUE) {
+	  print("plotting")
 	png(filename = paste0(plot.file,'/','habitat','.png'), width = 800, height = 800)
 	plot_habitat(hab)
 	dev.off()
 	}
 
+	#change line 86 to plot_habitat(hab[["hab"]])
 
 # Now the spawning habitat
 # Define the spawning habitat preferences
@@ -119,7 +121,7 @@ spwn <- matrix(rep(0.5, nrows * ncols), nc = ncols)
 	# Plot
 	if(plot.dist == TRUE & !is.null(spawn_areas)) {
 	png(filename = paste0(plot.file,'/','habitat_spwn','.png'), width = 800, height = 800)
-	plot_habitat(spwn_hab)
+	plot_habitat(hab$spwn_hab)
 	dev.off()
 	}
 
