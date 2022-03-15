@@ -149,7 +149,7 @@ List move_prob_Lst(double lambda, NumericMatrix hab, NumericMatrix Nzero_vals) {
   
   
   // return list of matrices
-  return nNonzero;
+  return outLst;
   
 }
 
