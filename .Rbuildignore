@@ -16,3 +16,5 @@ write_up/
 write_up$
 ^doc$
 ^Meta$
+^.*\.Rproj$
+^\.Rproj\.user$
