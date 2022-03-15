@@ -20,6 +20,13 @@ plot_habitat <- function(hab = hab) {
 	nrows <- dim(hab[[1]])[1]
 	ncols <- dim(hab[[1]])[2]
 
+
+	
+	print(nrows)
+	show(ncols)
+	
+	show("plotting inside plot_habitat")
+	
 	par(mfrow = c(ceiling(sqrt(n.spp)), ceiling(n.spp/ceiling(sqrt(n.spp)))), mar = c(2, 2, 2, 2))
 	for(i in seq(n.spp)) {
 	image(hab[[paste0("spp", i)]], cex.axis = 1.5, cex.main = 2, col = grey(seq(1,0, l = 51)), axes = F)
